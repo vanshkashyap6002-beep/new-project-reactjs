@@ -3,47 +3,42 @@ import useFetch from "../hooks/useFetch";
 import "./ProductList.css";
 
 const ProductList = () => {
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetch("https://api.escuelajs.co/api/v1/products");
+
+  const { data, loading, error } = useFetch(
+    "https://api.escuelajs.co/api/v1/products"
+  );
 
   if (loading) {
-    return <h2 className="status">Loading...</h2>;
+    return <h2>Loading Products...</h2>;
   }
 
   if (error) {
-    return <h2 className="status error">{error}</h2>;
+    return <h2>{error}</h2>;
   }
 
   return (
-    <div className="container">
-      <h1 className="title">Product Store</h1>
+    <div className="main">
 
-      <div className="product-grid">
-        {products.slice(0, 12).map((product) => (
-          <div className="card" key={product.id}>
-            <img
-              src={product.images[0]}
-              alt={product.title}
-              className="product-image"
-            />
+      <h1>Product List</h1>
 
-            <div className="card-body">
-              <h3>{product.title}</h3>
+      <div className="products">
 
-              <p className="price">₹ {product.price}</p>
+        {data.slice(0, 10).map((item) => (
 
-              <p className="description">
-                {product.description.slice(0, 70)}...
-              </p>
+          <div className="card" key={item.id}>
 
-              <button className="btn">View Product</button>
-            </div>
+            <img src={item.images[0]} alt={item.title} />
+
+            <h3>{item.title}</h3>
+
+            <p>Price : ₹ {item.price}</p>
+
           </div>
+
         ))}
+
       </div>
+
     </div>
   );
 };
