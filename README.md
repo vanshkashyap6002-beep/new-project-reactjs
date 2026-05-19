@@ -1,16 +1,77 @@
-# React + Vite
+# React Custom Hook Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This project demonstrates the use of a custom React hook called useFetch. The hook is used to fetch product data from an external API and display it in a simple product list UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The project was created to understand how custom hooks work and how API fetching can be reused across components.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Custom hook (useFetch)
+- API data fetching
+- Loading state handling
+- Error handling
+- Product list display
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## API Used
+
+https://api.escuelajs.co/api/v1/products
+
+---
+
+## Technologies Used
+
+- React.js
+- JavaScript
+- CSS
+
+---
+
+## How to Run the Project
+
+1. Install dependencies
+
+npm install
+
+2. Start development server
+
+npm run dev
+
+---
+
+## Project Structure
+
+src/
+ ├── hooks/
+ │    └── useFetch.jsx
+ │
+ ├── components/
+ │    ├── ProductList.jsx
+ │    └── ProductList.css
+ │
+ └── App.jsx
+
+---
+
+## About useFetch Hook
+
+The useFetch hook is used to simplify API fetching. It manages:
+- fetched data
+- loading state
+- error state
+
+The hook uses:
+- useState for state management
+- useEffect for running fetch on component load
+- useCallback to avoid unnecessary function recreation
+
+---
+
+## Author
+
+Vansh Kashyap
